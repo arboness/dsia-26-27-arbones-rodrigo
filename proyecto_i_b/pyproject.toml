@@ -1,0 +1,45 @@
+[project]
+name = "spotify-app"
+version = "0.1.0"
+description = "Proyecto I (Parte B): pipeline de calidad de datos sobre canciones guardadas en Spotify."
+readme = "README.md"
+authors = [
+    { name = "Rodrigo Arbones V", email = "120335790+arboness@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "pandas>=3.0",
+]
+
+[project.optional-dependencies]
+# Solo para descargar datos nuevos con scripts/download_spotify.py
+download = [
+    "spotipy>=2.26",
+    "python-dotenv>=1.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0",
+    "pytest-cov>=7.0",
+]
+
+[project.scripts]
+spotify-app = "spotify_app.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12.9,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "spotify_app"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = [
+    "integration: tests que leen la muestra real (data/saved_tracks.csv)",
+]
+
+[tool.coverage.run]
+branch = true
