@@ -13,7 +13,7 @@ def validar_ventas(frame: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
 
     
     for i, fila in frame.iterrows():
-        isClean = False;
+        isClean = False
         unidades = pd.to_numeric(fila['unidades'], errors='coerce')
         precio_unitario = pd.to_numeric(fila['precio_unitario'], errors='coerce')
         if not pd.isna(unidades) and unidades > 0:
