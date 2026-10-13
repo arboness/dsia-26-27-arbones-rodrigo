@@ -1,7 +1,5 @@
 """Métricas de negocio sobre ventas ya validadas (con columna ``importe``)."""
-
 import pandas as pd
-
 from ventas_app.constants import AMOUNT_COLUMN, TOP_PRODUCTS_N
 
 

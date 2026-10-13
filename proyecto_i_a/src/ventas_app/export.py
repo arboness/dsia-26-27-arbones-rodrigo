@@ -1,10 +1,7 @@
 """Escritura de resultados a disco."""
-
 import json
 from pathlib import Path
-
 import pandas as pd
-
 
 def export_to_csv(df: pd.DataFrame, path: Path | str) -> None:
     """Guarda ``df`` como CSV (sin índice), creando la carpeta si no existe."""

@@ -1,9 +1,6 @@
 """Carga de ficheros de ventas."""
-
 from pathlib import Path
-
 import pandas as pd
-
 from ventas_app.constants import VALID_EXTENSIONS
 from ventas_app.exceptions import DataLoadError
 

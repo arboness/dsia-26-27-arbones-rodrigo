@@ -1,9 +1,6 @@
 """Validación de filas de ventas."""
-
 import logging
-
 import pandas as pd
-
 from ventas_app.constants import AMOUNT_COLUMN, PRICE_COLUMN, UNITS_COLUMN
 from ventas_app.exceptions import ValidationError
 
