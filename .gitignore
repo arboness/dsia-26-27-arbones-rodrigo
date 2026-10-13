@@ -1,4 +1,3 @@
-# Entornos y cachés de Python
 .venv/
 venv/
 __pycache__/
@@ -10,17 +9,20 @@ __pycache__/
 coverage.xml
 htmlcov/
 
-# Secretos (tokens, claves). Nunca al repo.
+
 .env
 .cache
 
-# Salidas generadas por el CLI
+
 salida/
 
-# Sistema / editor
+
 .DS_Store
 Thumbs.db
 
-# Parte A: en Datos/ solo se versiona el dataset original
+
 proyecto_i_a/Datos/*
 !proyecto_i_a/Datos/ventas.csv
+
+
+proyecto_i_b/spotify_data/
