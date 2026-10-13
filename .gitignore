@@ -1,0 +1,26 @@
+# Entornos y cachés de Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Secretos (tokens, claves). Nunca al repo.
+.env
+.cache
+
+# Salidas generadas por el CLI
+salida/
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+
+# Parte A: en Datos/ solo se versiona el dataset original
+proyecto_i_a/Datos/*
+!proyecto_i_a/Datos/ventas.csv
