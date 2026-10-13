@@ -1,29 +1,28 @@
 # Proyecto I — Parte A: pipeline de ventas
 
-[![CI](https://github.com/arboness/dsia-26-27-arbones-rodrigo/actions/workflows/ci.yml/badge.svg)](https://github.com/arboness/dsia-26-27-arbones-rodrigo/actions/workflows/ci.yml)
 
 Pipeline de calidad de datos sobre el `ventas.csv` del curso:
-**carga → validación → métricas → exportación**, con CLI, tests (pytest) y CI (GitHub Actions).
+**carga -> validación -> métricas -> exportación**, con CLI, tests (pytest) y CI (GitHub Actions).
 
 ## Estructura
 
 ```
 proyecto_i_a/
   src/ventas_app/
-    loader.py       # load_file(): CSV/TXT/JSON -> DataFrame; DataLoadError si la ruta no vale
-    validator.py    # SalesValidator / sales_validator(): (válidas, inválidas) + columna importe
-    metrics.py      # sales_by_region, top_products, weekly_sales, recurring_clients, quality_report
-    export.py       # export_to_csv, export_json
-    cli.py          # python -m ventas_app.cli
-    exceptions.py   # SalesPipelineError -> DataLoadError, ValidationError
+    loader.py      
+    validator.py    
+    metrics.py      
+    export.py       
+    cli.py          
+    exceptions.py   
     constants.py
   tests/ventas/
-    conftest.py     # fixtures en memoria (sales_mini, valid_sales) y tmp_path
+    conftest.py     
     test_loader.py
     test_validator.py
     test_metrics.py
     test_cli.py
-  Datos/ventas.csv  # dataset del curso (150 filas)
+  Datos/ventas.csv  
   requirements.txt
   pyproject.toml
 ```
@@ -39,18 +38,10 @@ Checkpoint con el CSV del curso: **140 válidas y 10 inválidas**.
 
 ## Instalación
 
-Con [uv](https://docs.astral.sh/uv/):
 
 ```bash
 cd proyecto_i_a
 uv sync
-```
-
-O con pip (Python ≥ 3.12):
-
-```bash
-cd proyecto_i_a
-pip install -r requirements.txt
 ```
 
 ## Ejecutar el pipeline
@@ -59,8 +50,7 @@ pip install -r requirements.txt
 python -m ventas_app.cli --input Datos/ventas.csv --output salida/ventas_limpias.csv
 ```
 
-Con uv: `uv run python -m ventas_app.cli ...` o `uv run ventas-app ...`.
-Si usas pip sin instalar el paquete, ejecuta con `PYTHONPATH=src` (en PowerShell: `$env:PYTHONPATH="src"`).
+Con uv: `uv run python -m ventas_app.cli ...`
 
 Salida (en la carpeta de `--output`):
 
@@ -92,6 +82,4 @@ Con uv, antepón `uv run` (p. ej. `uv run pytest -q`).
 ## CI
 
 `.github/workflows/ci.yml` (en la raíz del repo) se ejecuta en cada `push` a `main` y en cada `pull_request`:
-checkout → Python 3.12 → `pip install -r requirements.txt` → `pytest --cov=ventas_app --cov-fail-under=60`.
-
-Runs: [pestaña Actions](https://github.com/arboness/dsia-26-27-arbones-rodrigo/actions/workflows/ci.yml).
+checkout -> Python 3.12 -> `pip install -r requirements.txt` -> `pytest --cov=ventas_app --cov-fail-under=60`.

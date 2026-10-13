@@ -15,7 +15,7 @@ El CLI captura la base y devuelve `1`, sin acoplarse a cada caso concreto.
 
 ## OOP
 `SalesValidator` encapsula las reglas (`positive_columns`) y separa
-`check_columns` → `valid_mask` → `validate`. `sales_validator()` se mantiene como atajo funcional.
+`check_columns` -> `valid_mask` -> `validate`. `sales_validator()` se mantiene como atajo funcional.
 
 ## Dependency inversion / testabilidad
 - Los tests no dependen de red ni de rutas absolutas: usan fixtures en memoria y `tmp_path`.
